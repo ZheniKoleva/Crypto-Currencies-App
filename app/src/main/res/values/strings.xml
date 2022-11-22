@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Crypto Currencies</string>
+    <string name="currencies_count">Currencies count: %1$d</string>
+    <string name="price">Price: %1$.2f USD</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="price_formatted">%1$.2f</string>
+    <string name="market_cap_formatted">%1$.2f</string>
+    <string name="highest_price_formatted">%1$.2f</string>
+    <string name="lowest_price_formatted">%1$.2f</string>
+    <string name="price_change_percentage_formatted">%1$.2f</string>
+    <string name="market_cap_change_percentage_formatted">%1$.2f</string>
+
+    <string name="label_logo">Logo:</string>
+    <string name="label_currency_name">Currency name:</string>
+    <string name="label_currency_symbol">Currency symbol:</string>
+    <string name="label_current_price">Current price:</string>
+    <string name="label_market_cap">Market cap:</string>
+    <string name="label_highest_price_last_24h">Highest price for last 24h:</string>
+    <string name="label_percentage_price_change">Percentage price change for last 24h:</string>
+    <string name="label_percentage_market_cap_change">Percentage market cap change for last 24h:</string>
+    <string name="label_lowest_price">Lowest price for last 24h:</string>
+</resources>
