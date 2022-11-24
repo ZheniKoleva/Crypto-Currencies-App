@@ -33,6 +33,9 @@ class CurrencyAdapter(private val currencies: List<Currency>) :
 
             ivLiked.visibility = if (currentCurrency.favourite) View.VISIBLE else View.GONE
 
+            tvPrice.text = holder.binding.root.context
+                .getString(R.string.price, currentCurrency.currentPrice)
+            
             Glide
                 .with(root.context)
                 .load(currentCurrency.logo)

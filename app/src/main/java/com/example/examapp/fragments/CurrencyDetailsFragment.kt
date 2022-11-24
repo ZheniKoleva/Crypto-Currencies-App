@@ -52,7 +52,9 @@ class CurrencyDetailsFragment : Fragment() {
                 binding.currency = it?.asCurrencyDetails(binding.root.context) ?: return@collect
 
                 (activity as? MainActivity)?.runOnUiThread {
-                    setDataBinding()
+
+                    setDataBinding(it.priceChangePercentage, it.marketCapChangePercentage)
+
                     Glide
                         .with(context ?: return@runOnUiThread)
                         .load(it.logo)
@@ -64,30 +66,32 @@ class CurrencyDetailsFragment : Fragment() {
         }
     }
 
-    private fun setDataBinding() {
+    private fun setDataBinding(priceChange: Double = 0.0, marketCapChange: Double = 0.0) {
         binding.currency ?: return
+
         if (binding.currency?.favourite == true) {
             binding.btnLike.setImageResource(android.R.drawable.star_big_on)
         } else {
             binding.btnLike.setImageResource(android.R.drawable.star_big_off)
         }
 
+        if (priceChange < 0f) {
+            binding.tvPercentageMarketCap.setTextColor(Color.parseColor("#FF0000"))
+        }
+
+        if (marketCapChange < 0f) {
+            binding.tvPercentagePrice.setTextColor(Color.parseColor("#FF0000"))
+        }
+
         binding.btnLike.setOnClickListener {
             val currency = binding.currency
+
             currency?.favourite = currency?.favourite != true
 
             if (currency?.favourite == true) {
                 binding.btnLike.setImageResource(android.R.drawable.star_big_on)
             } else {
                 binding.btnLike.setImageResource(android.R.drawable.star_big_off)
-            }
-
-            if (currency?.marketCapChangePercentage?.toDouble()?.compareTo(0f)!! < 0){
-                binding.tvPercentageMarketCap.setTextColor(Color.parseColor("#FF0000"))
-            }
-
-            if (currency?.priceChangePercentage?.toDouble()?.compareTo(0f)!! < 0){
-                binding.tvPercentagePrice.setTextColor(Color.parseColor("#FF0000"))
             }
 
             GlobalScope.launch {

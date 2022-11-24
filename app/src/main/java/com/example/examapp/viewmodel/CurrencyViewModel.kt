@@ -20,8 +20,9 @@ class CurrencyViewModel(
     val selectCurrency: StateFlow<Currency?> = selectedCurrencyStateFlow.asStateFlow()
 
     suspend fun getCurrencies() {
-        val currencies = currencyRepository.getCurrencies()
-        currenciesListStateFlow.value = currencies ?: arrayListOf()
+        var currencies = currencyRepository.getCurrencies()
+        //currencies = currencies.sortedByDescending { it.favourite }
+        currenciesListStateFlow.value = currencies
     }
 
     suspend fun getCurrencyById(id: String) {

@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
             currencyViewModel.currenciesList.collect {
                 runOnUiThread {
                     var currencies = it
-                    currencies = currencies.sortedByDescending { it.marketCap }
+                    currencies = currencies.sortedByDescending { it.favourite }
                     val adapter = CurrencyAdapter(currencies)
                     binding.currenciesList.adapter = adapter
                     binding.tvCurrenciesCount.text =
