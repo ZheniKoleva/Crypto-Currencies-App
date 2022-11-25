@@ -38,5 +38,4 @@ class CurrencyRepository constructor(
     suspend fun setFavorite(currency: Currency) {
         currencyDao.update(currency)
     }
-
 }

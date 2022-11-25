@@ -2,7 +2,10 @@ package com.example.examapp.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.examapp.R
@@ -76,7 +79,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observeData() {
-        GlobalScope.launch {
+        lifecycleScope.launch {
             currencyViewModel.currenciesList.collect {
                 runOnUiThread {
                     var currencies = it

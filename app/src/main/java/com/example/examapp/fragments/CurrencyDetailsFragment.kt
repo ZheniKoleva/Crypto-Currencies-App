@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.examapp.R
 import com.example.examapp.activity.MainActivity
@@ -24,7 +25,7 @@ class CurrencyDetailsFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         val selectedCurrency = arguments?.getString("id", null)
-        GlobalScope.launch {
+        lifecycleScope.launch {
             (activity as? MainActivity)?.currencyViewModel?.getCurrencyById(
                 selectedCurrency ?: return@launch
             )
@@ -48,7 +49,7 @@ class CurrencyDetailsFragment : Fragment() {
     }
 
     private fun observeData() {
-        GlobalScope.launch {
+        lifecycleScope.launch {
             (activity as? MainActivity)?.currencyViewModel?.selectCurrency?.collect {
                 binding.currency = it?.asCurrencyDetails(binding.root.context) ?: return@collect
 
@@ -98,9 +99,9 @@ class CurrencyDetailsFragment : Fragment() {
                 binding.btnLike.setImageResource(android.R.drawable.star_big_off)
             }
 
-            GlobalScope.launch {
+            lifecycleScope.launch {
                 (activity as? MainActivity)?.currencyViewModel?.setAsFavorite(
-                    currency?.asCurrency(binding.root.context) ?: return@launch
+                    currency?.asCurrency() ?: return@launch
                 )
             }
         }

@@ -11,7 +11,7 @@ interface CurrencyDao {
     @Query("SELECT * FROM Currencies WHERE id=:id")
     suspend fun getCurrencyById(id: String): Currency
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertCurrencies(currencies: List<Currency>)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)

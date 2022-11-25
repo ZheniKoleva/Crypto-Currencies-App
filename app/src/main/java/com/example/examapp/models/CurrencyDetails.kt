@@ -17,7 +17,7 @@ data class CurrencyDetails(
     var favourite: Boolean
 )
 
-fun CurrencyDetails.asCurrency(context: Context): Currency {
+fun CurrencyDetails.asCurrency(): Currency {
     return Currency(
         id = this.id,
         symbol = this.symbol,

@@ -6,6 +6,7 @@ import com.example.examapp.repository.CurrencyRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 
 class CurrencyViewModel(
     private val currencyRepository: CurrencyRepository
@@ -21,7 +22,6 @@ class CurrencyViewModel(
 
     suspend fun getCurrencies() {
         var currencies = currencyRepository.getCurrencies()
-        //currencies = currencies.sortedByDescending { it.favourite }
         currenciesListStateFlow.value = currencies
     }
 
@@ -32,9 +32,8 @@ class CurrencyViewModel(
 
     suspend fun setAsFavorite(currency: Currency) {
         currencyRepository.setFavorite(currency)
-        selectedCurrencyStateFlow.value =
-            selectedCurrencyStateFlow.value?.copy(favourite = currency.favourite)
-
-
+        selectedCurrencyStateFlow.update {
+            it?.copy(favourite = currency.favourite)
+        }
     }
 }
