@@ -34,5 +34,7 @@ class CurrencyViewModel(
         currencyRepository.setFavorite(currency)
         selectedCurrencyStateFlow.value =
             selectedCurrencyStateFlow.value?.copy(favourite = currency.favourite)
+
+
     }
 }

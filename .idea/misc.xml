@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/SoftUni/Android/Crypto-Currencies-App/app/src/main/res/layout/activity_main.xml" value="0.22760416666666666" />
+        <entry key="..\:/SoftUni/Android/Crypto-Currencies-App/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/SoftUni/Android/Crypto-Currencies-App/app/src/main/res/layout/currency_list_item.xml" value="0.536" />
         <entry key="..\:/SoftUni/Android/Crypto-Currencies-App/app/src/main/res/layout/fragment_currency_details.xml" value="0.1" />
         <entry key="..\:/SoftUni/Android/ExamApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/SoftUni/Android/ExamApp/app/src/main/res/layout/currency_list_item.xml" value="0.1" />

@@ -17,11 +17,10 @@
 
         <ImageView
             android:id="@+id/iv_logo"
-            android:layout_width="140dp"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/ic_launcher_background" />
@@ -68,10 +67,9 @@
             android:id="@+id/iv_liked"
             android:layout_width="14dp"
             android:layout_height="18dp"
-            android:layout_marginTop="8dp"
             android:src="@android:drawable/star_big_on"
-            android:visibility="gone"
-            app:layout_constraintStart_toEndOf="parent"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/ic_launcher_background" />
 

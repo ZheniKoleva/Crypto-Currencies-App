@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.examapp.R
 import com.example.examapp.activity.MainActivity
@@ -52,8 +53,19 @@ class CurrencyDetailsFragment : Fragment() {
                 binding.currency = it?.asCurrencyDetails(binding.root.context) ?: return@collect
 
                 (activity as? MainActivity)?.runOnUiThread {
+                    if (it.priceChangePercentage < 0.0f) {
+                        binding.tvPercentageMarketCap.setTextColor(
+                            ContextCompat.getColor(context ?: return@runOnUiThread, R.color.red)
+                        )
+                    }
 
-                    setDataBinding(it.priceChangePercentage, it.marketCapChangePercentage)
+                    if (it.marketCapChangePercentage < 0.0f) {
+                        binding.tvPercentagePrice.setTextColor(
+                            ContextCompat.getColor(context ?: return@runOnUiThread, R.color.red)
+                        )
+                    }
+
+                    setDataBinding()
 
                     Glide
                         .with(context ?: return@runOnUiThread)
@@ -66,21 +78,13 @@ class CurrencyDetailsFragment : Fragment() {
         }
     }
 
-    private fun setDataBinding(priceChange: Double = 0.0, marketCapChange: Double = 0.0) {
+    private fun setDataBinding() {
         binding.currency ?: return
 
         if (binding.currency?.favourite == true) {
             binding.btnLike.setImageResource(android.R.drawable.star_big_on)
         } else {
             binding.btnLike.setImageResource(android.R.drawable.star_big_off)
-        }
-
-        if (priceChange < 0f) {
-            binding.tvPercentageMarketCap.setTextColor(Color.parseColor("#FF0000"))
-        }
-
-        if (marketCapChange < 0f) {
-            binding.tvPercentagePrice.setTextColor(Color.parseColor("#FF0000"))
         }
 
         binding.btnLike.setOnClickListener {

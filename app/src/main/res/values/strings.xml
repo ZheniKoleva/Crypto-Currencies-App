@@ -1,14 +1,14 @@
 <resources>
     <string name="app_name">Crypto Currencies</string>
     <string name="currencies_count">Currencies count: %1$d</string>
-    <string name="price">Price: %1$.2f USD</string>
+    <string name="price">Price: %1$f USD</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="price_formatted">%1$.2f</string>
-    <string name="market_cap_formatted">%1$.2f</string>
-    <string name="highest_price_formatted">%1$.2f</string>
-    <string name="lowest_price_formatted">%1$.2f</string>
-    <string name="price_change_percentage_formatted">%1$.2f</string>
-    <string name="market_cap_change_percentage_formatted">%1$.2f</string>
+    <string name="price_formatted">%1$f</string>
+    <string name="market_cap_formatted">%1$f</string>
+    <string name="highest_price_formatted">%1$f</string>
+    <string name="lowest_price_formatted">%1$f</string>
+    <string name="price_change_percentage_formatted">%1$f</string>
+    <string name="market_cap_change_percentage_formatted">%1$f</string>
 
     <string name="label_logo">Logo:</string>
     <string name="label_currency_name">Currency name:</string>
